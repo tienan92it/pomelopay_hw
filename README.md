@@ -1,6 +1,6 @@
 # PomeloPay HW
 
-<img src='./__screenshot__/transactions.png' align='left' />
+<img src='./__screenshots__/transactions.png' width="250"/>
 
 ## Introduction
 
@@ -58,16 +58,16 @@ $ yarn android
 ```
 .
 └── src
-  ├──components 			# only contain doom components (show UI only)
-  │ └──__tests__ 			# unit tests and snapshots of unit tests
-  ├──constants			# contain common layouts, colores, image paths, keys, configs, routes…
-  ├──redux 				# define and initial store for global data
-  │ ├──actions 			# receive and handle requests from UI view and dispatch to reducers
-  │ ├──sagas			# redux sagas
-  │ └──reducers 			# contains global data and deliver to UI view
-  ├──screens 				# all screens of the app
-  ├──services 			# handle request API, login services…
-  └──utils 				# common functions, helpers and tools…
+  ├──components            # only contain doom components (show UI only)
+  │ └──__tests__           # unit tests and snapshots of unit tests
+  ├──constants             # contain common layouts, colores, image paths, keys, configs, routes…
+  ├──redux                 # define and initial store for global data
+  │ ├──actions             # receive and handle requests from UI view and dispatch to reducers
+  │ ├──sagas               # redux sagas
+  │ └──reducers            # contains global data and deliver to UI view
+  ├──screens               # all screens of the app
+  ├──services              # handle request API, login services…
+  └──utils                 # common functions, helpers and tools…
 
 ```
 

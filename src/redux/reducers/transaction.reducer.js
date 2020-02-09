@@ -14,6 +14,7 @@ const applyTransactions = (state, action) => ({
   transactions: action.payload,
 });
 
+// Refund a transaction
 const refundTransaction = (state, action) => {
   const {transactions} = state;
   const transId = action.payload;

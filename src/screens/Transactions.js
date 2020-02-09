@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {ActivityIndicator, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import styled from 'styled-components/native';
 import moment from 'moment';
 //Redux
@@ -32,17 +32,13 @@ const Transactions = ({}) => {
     dispatch(getTransactions());
   }, []);
 
+  function refreshTransactions() {
+    dispatch(getTransactions());
+  }
+
   const refund = id => () => {
     dispatch(refundTransaction(id));
   };
-
-  if (transactionsLoading) {
-    return (
-      <Container>
-        <ActivityIndicator size="large" />
-      </Container>
-    );
-  }
 
   function _keyExtractor(item) {
     return item.id;
@@ -69,6 +65,8 @@ const Transactions = ({}) => {
         data={transactions}
         renderItem={_renderTransaction}
         keyExtractor={_keyExtractor}
+        onRefresh={refreshTransactions}
+        refreshing={transactionsLoading}
       />
     </Container>
   );
