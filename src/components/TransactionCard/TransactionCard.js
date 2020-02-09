@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {STATE_COLORS} from '../../constants/Colors';
+import REFUND_ICON from '../../assets/images/ic_refund.png';
 
 const STATE = {
   CONFIRMED: 'CONFIRMED',
@@ -31,15 +32,17 @@ const TransitionCard = ({
         <Title>{contact}</Title>
         <SubTitle>{date}</SubTitle>
       </DetailContent>
-      <Amount
-        color={
-          STATE_COLORS[state] || STATE_COLORS.DEFAULT
-        }>{`${amount}\n${currency}`}</Amount>
-      {canRefund && (
-        <ButtonWrapper onPress={refund}>
-          <ButtonText>Refund</ButtonText>
-        </ButtonWrapper>
-      )}
+      <AmountContent>
+        <Amount
+          color={
+            STATE_COLORS[state] || STATE_COLORS.DEFAULT
+          }>{`${amount}\n${currency}`}</Amount>
+        {canRefund && (
+          <IconWrapper onPress={refund}>
+            <Icon source={REFUND_ICON} resizeMode="contain" />
+          </IconWrapper>
+        )}
+      </AmountContent>
     </Container>
   );
 };
@@ -80,25 +83,28 @@ const SubTitle = styled.Text`
   font-size: 12px;
 `;
 
+const AmountContent = styled.View`
+  flex-direction: row;
+  align-self: center;
+  margin-left: auto;
+`;
+
 const Amount = styled.Text`
   color: ${props => props.color};
   font-size: 24px;
   font-weight: 600;
   text-align: center;
-  align-self: center;
-  margin-left: auto;
 `;
 
-const ButtonWrapper = styled.TouchableOpacity`
+const IconWrapper = styled.TouchableOpacity`
   padding: 10px;
-  border-radius: 4px;
-  background-color: #fff;
-  margin-left: auto;
+  background-color: transparent;
 `;
 
-const ButtonText = styled.Text`
-  color: #000;
-  text-align: center;
+const Icon = styled.Image`
+  width: 35;
+  height: 35;
+  tint-color: #fff;
 `;
 
 export default React.memo(TransitionCard);
