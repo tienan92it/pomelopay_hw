@@ -1,6 +1,6 @@
 # PomeloPay HW
 
-<img src='./__screenshot__/transactions.png' align='left' />
+<img src='./__screenshots__/transactions.png' align='left' />
 
 ## Introduction
 
